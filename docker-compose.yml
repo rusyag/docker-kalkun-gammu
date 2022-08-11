@@ -2,17 +2,17 @@ version: '3.1'
 
 services:
   kalkun:
-    image: realjoshbyrnes/gammu-kalkun:0.7.1
+    image: devyag/kalkun-gammu:0.8d
     restart: always
     ports:
-      - 8080:80
+      - 8000:80
     devices:
-      - /dev/ttyUSB1:/dev/gsm-modem
+      - /dev/ttyUSB0:/dev/gsm-modem
     depends_on:
       - "kalkun-db"
 
   kalkun-db:
-    image: realjoshbyrnes/mariadb-kalkun:0.7.1
+    image: realjoshbyrnes/mariadb-kalkun:0.8d
     restart: always
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: RANDOM
