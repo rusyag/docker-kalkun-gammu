@@ -8,10 +8,10 @@ RUN /sbin/apk update && /sbin/apk add --no-cache \
   # Install Gammu-SMSD, PHP8, MariaDB-Client & OpenRC
     gammu-smsd php8 php8-fpm php8-mysqli php8-mbstring \
     php8-session php8-ctype openrc mariadb-client tzdata \
-    composer php8-intl \
-  # Set default timezone to Australia/Sydney
-  && cp /usr/share/zoneinfo/Australia/Sydney /etc/localtime \
-  && echo "Australia/Sydney" >  /etc/timezone \
+    composer php8-intl php8-xml php8-simplexml \
+  # Set default timezone to Europe/Moscow
+  && cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
+  && echo "Europe/Moscow" >  /etc/timezone \
   && apk del tzdata \
   # Create required directories
   && /bin/busybox mkdir -p /run/openrc /var/www /var/log/gammu \
